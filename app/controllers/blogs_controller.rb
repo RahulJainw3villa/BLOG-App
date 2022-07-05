@@ -2,7 +2,10 @@ class BlogsController < ApplicationController
     
     def index
         @blogs = Blog.all
+        @count = Blog.count
     end
+
+   
 
     def new 
         @blog = Blog.new
