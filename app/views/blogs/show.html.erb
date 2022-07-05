@@ -1,0 +1,17 @@
+
+
+<h3>BLOG</h3>
+<div class="container">
+<h3 class='text-center'><%= @blog.title %> </h3>
+<p class='text-center'> <%= @blog.description %></p>
+
+<br>
+<td>Category ID:  <%= @blog.category_id %><td>
+<br>     
+<p>Category Name: <%= @blog.category_id.present? ? @blog.category.category : 'Null' %></p>
+
+<td><%= link_to 'Update',  edit_blog_path(@blog), class: 'btn btn-primary' %></td>
+<td><%= link_to "Delete", blog_path(@blog), method: :delete,data:{ confirm: "Are you sure?"}, class: 'btn btn-danger' %></td> 
+<td><%= link_to 'Back', blogs_path , class: 'btn btn-secondary' %></td>
+ 
+</div>

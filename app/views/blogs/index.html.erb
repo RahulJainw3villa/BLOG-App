@@ -1,0 +1,28 @@
+<h3>Create New Blog</h3>
+<a href = "blogs/new">Create New Blog</a>
+<h3>Blogs LIST</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Show</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+  <% @blogs.each do |i| %>
+    <tbody>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= i.title %></td>
+        <td><%= link_to 'show', i%></td>
+        <td><%= link_to 'Update',  edit_blog_path(i) %></td>
+        <td><%= link_to "Delete", blog_path(i), method: :delete,data:{ confirm: "Are you sure?"} %></td> 
+       
+        
+        </tr>
+    </tbody>
+  <% end %>
+      
+</table>
