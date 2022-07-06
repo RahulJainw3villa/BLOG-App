@@ -2,6 +2,9 @@ class BlogsController < ApplicationController
     
     def index
         @blogs = Blog.all
+        # @blogs = Blog.all.order(title: :ASC)
+        # @blogs = Blog.all.limit(8)
+        # @blogs = Blog.all.order(title: :ASC).limit(5)
         @count = Blog.count
     end
 
@@ -22,7 +25,7 @@ class BlogsController < ApplicationController
     def create
         @blog = Blog.new(blog_params)
             if @blog.save
-                redirect_to blogs_path
+                redirect_to blogs_path, notice: 'Blog was successfully created'
             else
                 render  :new, :status, :unprocessable_entity  
             end    
@@ -54,7 +57,7 @@ class BlogsController < ApplicationController
         end
 
         def blog_params
-            params.require(:blog).permit(:title, :description, :category_id)
+            params.require(:blog).permit(:title, :description, :category_id,:image)
         end
 
 

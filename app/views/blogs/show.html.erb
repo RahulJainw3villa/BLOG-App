@@ -2,12 +2,19 @@
 
 <h3>BLOG</h3>
 <div class="container">
+
+ <% if @blog.image.attached? %> 
+<image src="<%= (url_for(@blog.image)) %>", height="370px" width="1100px">
+<% end %> 
 <h3 class='text-center'><%= @blog.title %> </h3>
 <p class='text-center'> <%= @blog.description %></p>
 
+
 <br>
 <td>Category ID:  <%= @blog.category_id %><td>
-<br>     
+<br>
+
+<div><%= @blog.image%></div>     
 <p>Category Name: <%= @blog.category_id.present? ? @blog.category.category : 'Null' %></p>
 
 <td><%= link_to 'Update',  edit_blog_path(@blog), class: 'btn btn-primary' %></td>

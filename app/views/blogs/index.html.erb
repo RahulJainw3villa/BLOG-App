@@ -1,14 +1,17 @@
+<p id="notice"><%= notice %></p>
 <h4>Create New Blog</h4>
 <a class = "btn btn-primary text-white" href = "blogs/new">Create New Blog</a>
 <h3 class='text-center'>ALL BLOGS LIST</h3>
 <p>The Total Number of Blogs are <%= @count%></p>
 <hr>
-
+  
+    
 <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Title</th>
+        <th scope="col">Category</th>
         <th scope="col">Show</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
@@ -19,6 +22,7 @@
       <tr>
         <td><%= i.id %></td>
         <td><%= i.title %></td>
+        <td><%= i.category.category %></td>
         <td><%= link_to 'show', i%></td>
         <td><%= link_to 'Update',  edit_blog_path(i) %></td>
         <td><%= link_to "Delete", blog_path(i), method: :delete,data:{ confirm: "Are you sure?"} %></td> 

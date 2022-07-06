@@ -1,5 +1,25 @@
+ <%# <%= image_tag "https://www.w3schools.com/images/w3schools_green.jpg", height: 300%> 
+ <%# <img src="https://www.w3schools.com/images/w3schools_green.jpg", height: 300px, width: 300px> %>
+ <%# <%= image_tag "", height: 300%> 
+ <%# <img src="https://pixabay.com/vectors/user-login-enter-icon-person-2160923/"> %>
+ <%# <p>
+  QuizMe is a free <%= link_to "Quizlet", "https://pixabay.com/photos/ramen-soup-food-asian-pasta-7238665/", target: "_blank" %> 
+<%# </p>  %>
+   <%# <div class="form-group">
+                <label for="media">Post Media</label>
+                <input type="file" name="media" class="form-control media-upload">
+            </div> %>
+
+
 <h1>Create New Blog</h1>
 <%= form_with model: @blog do |form| %>
+  
+   
+   <div>
+    <%= form.label :Image %><br>
+    <%= form.file_field :image %>
+    </div>
+
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -13,9 +33,10 @@
 
 <div>
     <%= form.label :category_id %><br>
-<%= form.select :category_id , Category.all.map{|c| [c.category, c.id]} %>
+ <%= form.select :category_id, Category.all.map{|c| [c.category, c.id]} %> 
   </div>
 <br>
+
   <div>
     <%= form.submit 'Submit', class:"btn btn-primary" %>
   </div>
