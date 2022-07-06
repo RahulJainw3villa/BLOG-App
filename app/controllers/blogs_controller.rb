@@ -2,6 +2,16 @@ class BlogsController < ApplicationController
     
     def index
         @blogs = Blog.all
+        @category = Category.all
+
+        cate = params[:cate]
+
+        if !cate.nil?
+            @blogs = Blog.where(:category_id => cate)
+        else
+            @blog = Blog.all
+        end
+        
         # @blogs = Blog.all.order(title: :ASC)
         # @blogs = Blog.all.limit(8)
         # @blogs = Blog.all.order(title: :ASC).limit(5)

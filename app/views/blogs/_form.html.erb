@@ -22,22 +22,22 @@
 
   <div>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control w-50"%>
   </div>
 
 <div>
     <%= form.label :description %><br>
-    <%= form.text_field :description %>
+    <%= form.text_field :description,class:"form-control w-50" %>
   </div>
 
 
 <div>
     <%= form.label :category_id %><br>
- <%= form.select :category_id, Category.all.map{|c| [c.category, c.id]} %> 
+ <%= form.select :category_id,  Category.all.map{|c| [c.category, c.id]} %> 
   </div>
 <br>
 
   <div>
-    <%= form.submit 'Submit', class:"btn btn-primary" %>
+    <%= form.submit 'Submit', class:"btn btn-outline-primary" %>
   </div>
 <% end %>

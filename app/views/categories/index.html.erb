@@ -1,27 +1,30 @@
 <p id="notice"><%= notice %></p>
-
+<h4>Add New Category</h4>
+<%= link_to 'New Category', new_category_path, class:"btn btn-outline-primary"%>
 <h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
+<br>
+<table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= category.category %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">ID</th>
+        <th scope="col">Category</th>
+        <th scope="col">Show</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+  <% @categories.each do |i| %>
+      <tbody>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= i.category %></td>
+        <td><%= link_to 'Show', i %></td>
+        <td><%= link_to 'Edit', edit_category_path(i) %></td>
+        <td><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    </tbody>
+  <% end %>    
 </table>
 
-<br>
 
-<%= link_to 'New Category', new_category_path %>
+

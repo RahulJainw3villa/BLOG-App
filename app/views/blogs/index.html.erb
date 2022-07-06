@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
+<h3>Select Specific Category</h3>
+<% @category.each do |i|%>
+    <div class="w-30 btn btn-outline-none">
+    <%= link_to i.category, blogs_path(:cate =>i.id) ,class:'m-1  w-30   btn btn-outline-primary'%>
+</div>
+<% end %>
+
 <h4>Create New Blog</h4>
 <a class = "btn btn-primary text-white" href = "blogs/new">Create New Blog</a>
 <h3 class='text-center'>ALL BLOGS LIST</h3>
@@ -30,3 +37,4 @@
     </tbody>
   <% end %>    
 </table>
+
